@@ -3,7 +3,56 @@ use std::collections::HashMap;
 use diplo_rs::province::*;
 
 fn main() {
-    println!("Hello, world!")
+    let cat = LocalProvince::new(
+        "Cato",
+        true,
+        true,
+        false,
+        Vec::new(),
+        vec![("Caesar", true, false), ("Brutus", true, false)],
+    );
+    let cae = LocalProvince::new(
+        "Caesar",
+        false,
+        true,
+        false,
+        Vec::new(),
+        vec![
+            ("Cato", true, false),
+            ("Brutus", true, false),
+            ("Pompey", true, false),
+        ],
+    );
+    let bru = LocalProvince::new(
+        "Brutus",
+        false,
+        true,
+        false,
+        Vec::new(),
+        vec![
+            ("Cato", true, false),
+            ("Brutus", true, false),
+            ("Pompey", true, false),
+        ],
+    );
+    let pom = LocalProvince::new(
+        "Pompey",
+        true,
+        true,
+        false,
+        Vec::new(),
+        vec![("Caesar", true, false), ("Brutus", true, false)],
+    );
+
+    for unit in [Unit::Army, Unit::Fleet] {
+        for x in [&cat, &cae, &pom, &bru] {
+            for y in [&cat, &cae, &pom, &bru] {
+                if x.is_adjacent_to(&y, unit) {
+                    println!("{:?} in {} is adjacent to {}", unit, x.name, y.name,);
+                }
+            }
+        }
+    }
 }
 
 #[derive(Clone, PartialEq, Eq, Debug)]
