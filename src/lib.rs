@@ -17,6 +17,8 @@ pub mod province {
     pub trait Province {
         // DATA //
 
+        /// The province's identifier.
+        fn id(&self) -> &str;
         /// Whether the province is a supply centre.
         fn is_centre(&self) -> bool;
         /// Whether an army can move to the province.

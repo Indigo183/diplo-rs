@@ -96,6 +96,9 @@ impl LocalProvince {
 }
 
 impl Province for LocalProvince {
+    fn id(&self) -> &str {
+        self.name
+    }
     fn is_centre(&self) -> bool {
         self.is_centre
     }
