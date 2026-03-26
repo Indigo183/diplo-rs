@@ -83,13 +83,8 @@ pub mod default {
             }
         }
 
-        pub fn romans() -> (
-            DefaultProvince,
-            DefaultProvince,
-            DefaultProvince,
-            DefaultProvince,
-        ) {
-            (
+        pub fn romans() -> [DefaultProvince; 4] {
+            [
                 DefaultProvince::new(
                     "Cato",
                     true,
@@ -130,7 +125,7 @@ pub mod default {
                     Vec::new(),
                     vec![("Caesar", true, false), ("Brutus", true, false)],
                 ),
-            )
+            ]
         }
     }
 

@@ -4,7 +4,7 @@ use diplo_rs::default;
 use diplo_rs::province::*;
 
 fn main() {
-    let (cat, cae, bru, pom) = default::DefaultProvince::romans();
+    let [cat, cae, bru, pom] = default::DefaultProvince::romans();
 
     for unit in [Unit::Army, Unit::Fleet] {
         for x in [&cat, &cae, &bru, &pom] {
