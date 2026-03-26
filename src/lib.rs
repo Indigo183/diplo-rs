@@ -155,3 +155,36 @@ pub mod default {
         }
     }
 }
+
+#[cfg(test)]
+mod test_roman {
+    use super::default;
+    use super::province::*;
+
+    #[test]
+    fn adjacencies() {
+        let romans = default::DefaultProvince::romans();
+        let mut adjacencies = Vec::with_capacity(16);
+
+        for unit in [Unit::Army, Unit::Fleet] {
+            for x in &romans {
+                for y in &romans {
+                    let adjacent = x.is_adjacent_to(&y, unit);
+                    adjacencies.push(adjacent);
+                    if adjacent {
+                        println!("{:?} in {} is adjacent to {}", unit, x.id(), y.id());
+                    }
+                }
+            }
+        }
+
+        assert_eq!(
+            adjacencies,
+            [
+                false, true, true, false, true, false, true, true, true, false, true, true, false,
+                true, true, false, false, false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false,
+            ]
+        )
+    }
+}
