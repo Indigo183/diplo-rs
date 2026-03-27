@@ -1,10 +1,10 @@
-#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Unit {
     Army,
     Fleet,
 }
 
-#[derive(Clone, Copy, PartialEq, Eq, Hash, Debug)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Coast {
     NC,
     SC,
